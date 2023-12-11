@@ -53,6 +53,7 @@ async function addSearchRecord(username, searchRecord) {
     return db.all('SELECT * FROM comment_records WHERE movie_id = ?', movieId);
   }
 
+
   // 添加搜索记录
 app.post('/add-search-record', async (req, res) => {
     const { username, searchRecord } = req.body;
@@ -60,7 +61,10 @@ app.post('/add-search-record', async (req, res) => {
     res.send({ message: 'Search record added successfully.' });
 });
 
+app.get('/', async (req, res) => {
 
+    res.send({ message: 'Send successfully.' });
+});
 
 // 根据用户名查询搜索记录
 app.get('/search-records/:username', async (req, res) => {
